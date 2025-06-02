@@ -8,17 +8,17 @@ File Purpose: Create runner for making API calls
         3. Output human readible JSON output file for reproducible research
 """
 
+from src.pre_processors.correct_orientation import correct_orientation
+from src.pre_processors.create_outputs import create_outputs
+from src.pre_processors.resize_with_padding import resize_with_padding
+
 import ast
 import base64
 import json
 import os
 import re
 from io import BytesIO
-
-from correct_orientation import correct_orientation
-from create_outputs import create_outputs
 from PIL import Image
-from resize_with_padding import resize_with_padding
 
 
 def count_objects_in_images(
@@ -85,7 +85,7 @@ def count_objects_in_images(
     ]
 
     # json path-name
-    parent_folder = os.path.basename(os.path.dirname(image_path)) 
+    parent_folder = os.path.basename(os.path.dirname(image_path))
     grandparent_folder = os.path.basename(os.path.dirname(os.path.dirname(image_path)))
     image_file = os.path.basename(image_path)
     image_file_no_ext = os.path.splitext(image_file)[0]
@@ -163,7 +163,7 @@ def count_objects_in_images(
     else:
         json_path = json_filename
     with open(json_path, "w", encoding="utf-8") as json_file:
-        json.dump(output, json_file, indent=4, encoding="utf-8")
+        json.dump(output, json_file, indent=4)
         print(f"Sucessfully saved {json_file} to {output_dir}")
 
     return output
