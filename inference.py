@@ -10,7 +10,14 @@ import sys
 import platform
 from src.pre_processors.count_images_with_chatgpt import count_objects_in_images
 
-
+# account info 
+endpoint = os.getenv("ENDPOINT_URL", "YOUR_URL")
+deployment = os.getenv("DEPLOYMENT_NAME", "YOUR_MODEL_VERSION")
+subscription_key = os.getenv(
+    "AZURE_OPENAI_API_KEY",
+    "YOUR_KEY",
+)
+api_version = "YOUR_API_VERSION"
 
 # setup client
 client = AzureOpenAI(
