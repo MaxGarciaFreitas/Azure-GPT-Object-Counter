@@ -4,7 +4,7 @@ Author: Max Freitas
 File Purpose: Process detections after applying ChatGPT
     - 'merge_to_json_files': converts individual json files to a single .json file
     - 'json_to_excel': converts single .json file into excel
-    - 'filter_nonzero_detection': filter pd.Dataframe based on 'detections'
+    - 'has_nonzero_detection': filter pd.Dataframe based on 'detections'
     - 'sort_by_detection_class': sort pd.Dataframe based on counts for speciic classes
     - 'convert_detections_to_cols": change detections from single column of format {class1: count, ..} to col1: count_class1, col2: count_class2
 """
